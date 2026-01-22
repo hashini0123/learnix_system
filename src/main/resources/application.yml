@@ -1,0 +1,9 @@
+Spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/learnix_db
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
