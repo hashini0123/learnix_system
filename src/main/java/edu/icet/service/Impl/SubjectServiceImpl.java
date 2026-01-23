@@ -47,13 +47,8 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public List<SubjectDTO> getAll() {
-        List<SubjectEntity> subjectEntities = repository.findAll();
-        ArrayList<SubjectDTO> subjectDTOArrayList = new ArrayList<>();
-
-        subjectEntities.forEach(subjectEntity -> {
-            subjectDTOArrayList.add(mapper.map(subjectEntity, SubjectDTO.class));
-        });
-
-        return subjectDTOArrayList;
+        return repository.findAll().stream()
+                .map(subjectEntity -> mapper.map(subjectEntity, SubjectDTO.class))
+                .toList();
     }
 }
