@@ -1,17 +1,19 @@
 package edu.icet.service;
 
+import edu.icet.model.dto.SchoolClassDTO;
+
 import java.util.List;
 
 public interface SchoolClassService {
 
-    void addSchoolClass(SchoolClass schoolClass);
+    void addSchoolClass(SchoolClassDTO schoolClass);
 
-    void updateSchoolClass(SchoolClass schoolClass);
+    void updateSchoolClass(SchoolClassDTO schoolClass);
 
     void deleteSchoolClass(Integer id);
 
-    SchoolClass searchById(Integer id);
+    SchoolClassDTO searchById(Integer id);
 
-    List<SchoolClass> getAll();
+    List<SchoolClassDTO> getAll();
 
 }
