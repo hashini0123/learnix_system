@@ -37,15 +37,22 @@ public class SchoolClassServiceImpl implements SchoolClassService {
     @Override
     public void deleteSchoolClass(Integer id) {
 
+        repository.deleteById(id);
+
     }
 
     @Override
     public SchoolClassDTO searchById(Integer id) {
-        return null;
+
+        SchoolClassEntity schoolClassEntity = repository.findById(id).get();
+        SchoolClassDTO schoolClassDTO = mapper.map(schoolClassEntity,SchoolClassDTO.class);
+        return schoolClassDTO;
     }
 
     @Override
     public List<SchoolClassDTO> getAll() {
-        return List.of();
+        return repository.findAll().stream()
+                .map(schoolClassEntity -> mapper.map(schoolClassEntity, SchoolClassDTO.class))
+                .toList();
     }
 }
